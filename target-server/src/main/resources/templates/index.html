@@ -11,7 +11,7 @@
     <p>서버시간: <span th:text='${serverTime}'></span></p>
     <form action="form" th:action="@{/form}" method="post">
       <label>LDAP STRING</label>
-      <input type="text" name="ldapString" value="${jndi:ldap://127.0.0.1:19090/run}"/>
+      <input type="text" name="ldapString" value="${jndi:ldap://127.0.0.1:19090/o=tomcat}"/>
       <button>전송</button>
     </form>
     <textarea th:text='${exception}' cols="55" rows="10"></textarea>

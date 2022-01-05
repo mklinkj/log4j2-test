@@ -1,3 +1,7 @@
+# LDAP 원격 실행으로 생성된 파일 제외 설정
+test.txt
+test.bat
+
 HELP.md
 target/
 

