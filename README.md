@@ -1,6 +1,6 @@
 # Log4j2 2.14.1 LDAP 원격 코드 실행 취약점(CVE-2021-44228) 확인
 
-* 취약점
+* 취약점 공지
   * https://nvd.nist.gov/vuln/detail/CVE-2021-44228
 
 ## [target-server](target-server)
