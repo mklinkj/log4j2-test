@@ -14,9 +14,12 @@
   <name>target-server</name>
   <description>log4j2 2.14.1 test project for Spring Boot</description>
   <properties>
-    <java.version>11</java.version>
+    <java.version>17</java.version>
     <!-- Spring Boot 2.6.2는 2.17.1 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
     <log4j2.version>2.14.1</log4j2.version>
+    
+    <nashorn.version>15.3</nashorn.version>
+    <rhino-engine.version>1.7.14</rhino-engine.version>
   </properties>
   <dependencies>
     <dependency>
@@ -44,6 +47,30 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+  
+    <!--       
+      명령 실행에 Java의 JavaScript 구현 Nashorn을 사용하는데, Java 15에서 완전히 제거되었다. 
+      그래서 Java 17환경에서 실행하면 커맨드 실행 상황을 확인할 수 없는데,
+      openjdk nashorn 라이브러리 또는 mozilla의 rhino-engine 라이브러리를 
+      추가해주면 Java 17 환경에서도 커맨드 실행 상태를 확인 할 수 있었다.
+
+      이것과 관련해서 Log4Shell 자체는 정상 동작하여 타겟 서버로 명령어를 보냈는데, 
+      실행을 못한 경우를 말하는 것이고,
+      이렇게 라이브러리를 추가해주면 정상적으로 동작을 확인할 수 있다.
+    -->
+    <!--
+    <dependency>
+        <groupId>org.openjdk.nashorn</groupId>
+        <artifactId>nashorn-core</artifactId>
+        <version>${nashorn.version}</version>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>org.mozilla</groupId>
+      <artifactId>rhino-engine</artifactId>
+      <version>${rhino-engine.version}</version>
+    </dependency>
+
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -61,6 +88,7 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    
   </dependencies>
 
   <build>

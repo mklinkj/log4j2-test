@@ -9,8 +9,8 @@
 
   ```xml
   <properties>
-    <java.version>11</java.version>
-    <!-- Spring Boot 2.6.2는 2.17.0 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
+    <java.version>17</java.version>
+    <!-- Spring Boot 2.6.4는 2.17.1 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
     <log4j2.version>2.14.1</log4j2.version>
   </properties>
   ```
@@ -99,7 +99,38 @@ Tomcat관련 부분만 조사한 이유는...
 
    
 
-   
+
+
+
+## Java 15이상 환경에서 동작확인시...
+
+타겟 Tomcat에 보낼 Payload 생성에 Java의 JavaScript 구현 Nashorn을 사용하는데, Java 15부터 Nashorn이 완전히 제거되었다. 그래서 ldap 서버가 타겟 Tomcat으로 명령어는 보냈지만 명령어가 실행되지 않는 문제가 있었다.
+
+이때는..  nashorn-core 또는 rhino-engine 둘 중 하나만 타겟 Tomcat 서버에 라이브러리로 추가해주면 되었다.
+
+```xml
+<dependency>
+  <groupId>org.openjdk.nashorn</groupId>
+  <artifactId>nashorn-core</artifactId>
+  <version>${nashorn.version}</version>
+</dependency>
+```
+
+```xml
+<dependency>
+  <groupId>org.mozilla</groupId>
+  <artifactId>rhino-engine</artifactId>
+  <version>${rhino-engine.version}</version>
+</dependency>
+```
+
+* 참고
+  * JEP 372: Remove the Nashorn JavaScript Engine
+    * https://openjdk.java.net/jeps/372
+  * Known problems and workarounds
+    * https://apache.github.io/jmeter-site-preview/site/changes.html
+
+
 
 ## 후기
 
