@@ -10,7 +10,7 @@
   ```xml
   <properties>
     <java.version>17</java.version>
-    <!-- Spring Boot 2.6.4는 2.17.1 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
+    <!-- Spring Boot 2.6.5는 2.17.2 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
     <log4j2.version>2.14.1</log4j2.version>
   </properties>
   ```
