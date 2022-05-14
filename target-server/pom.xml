@@ -3,25 +3,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.7</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <groupId>org.mklinkj</groupId>
+    <artifactId>log4j2-test-pom-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../</relativePath>
   </parent>
-  <groupId>org.mklinkj</groupId>
   <artifactId>target-server</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>target-server</name>
-  <description>log4j2 2.14.1 test project for Spring Boot</description>
+  <description>log4j2 2.14.1 Test Target Server Project</description>
+
   <properties>
-    <java.version>17</java.version>
     <!-- Spring Boot 2.6.7은 2.17.2 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
     <!-- https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/2.6.7/spring-boot-dependencies-2.6.7.pom -->
     <log4j2.version>2.14.1</log4j2.version>
-    
-    <nashorn.version>15.3</nashorn.version>
-    <rhino-engine.version>1.7.14</rhino-engine.version>
   </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -91,22 +87,5 @@
     </dependency>
     
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-            </exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

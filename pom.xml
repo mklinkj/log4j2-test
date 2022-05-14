@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.6.7</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>org.mklinkj</groupId>
+  <artifactId>log4j2-test-pom-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>log4j2-test-pom-parent</name>
+  <description>log4j2 2.14.1 test pom parent project for Spring Boot</description>
+
+  <properties>
+    <java.version>17</java.version>
+    <nashorn.version>15.3</nashorn.version>
+    <rhino-engine.version>1.7.14</rhino-engine.version>
+  </properties>
+
+  <modules>
+    <!-- LDAP 서버 프로젝트 -->
+    <module>ldap-server</module>
+    
+    <!-- Log4j2 취약점이 활성화된 취약점 실행 대상 웹서버 프로젝트 -->
+    <module>target-server</module>    
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+            </exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>

@@ -132,6 +132,25 @@ Tomcat관련 부분만 조사한 이유는...
 
 
 
+## Maven POM 부모-자식 관계에서 프로젝트 실행
+
+**버전 관리를 편하게 하려고** `부모-자식` 관계로 pom.xml을 수정했는데, 다음과 같이 부모 pom 이 있는 디렉토리에서 실행할 수 있다.
+
+```bash
+# 전체 테스트
+$ mvnw clean test
+
+# 백그라운드로 실행하지 않으므로 별도의 콘솔창에서 각각 실행햐아한다.
+$ mvnw clean spring-boot:run -pl ldap-server
+$ mvnw clean spring-boot:run -pl target-server
+
+# 하위 프로젝트 디렉토리에 직접 들어가서 실행해도 된다.
+$ cd target-server
+$ mvnw clean spring-boot:run
+```
+
+
+
 ## 후기
 
 * 실제로 진행보니 이 취약점을 방치하면 정말 위험한 것 같다. 개발, 스테이징 환경에서 테스트를 해서 LDAP 접속을 발생시키는 부분이 없는지 확인 되어야할 것 같다.
