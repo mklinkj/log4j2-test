@@ -17,7 +17,7 @@
 
   <properties>
     <java.version>17</java.version>
-    <nashorn.version>15.3</nashorn.version>
+    <nashorn.version>15.4</nashorn.version>
     <rhino-engine.version>1.7.14</rhino-engine.version>
   </properties>
 
