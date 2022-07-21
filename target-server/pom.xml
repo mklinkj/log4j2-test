@@ -13,13 +13,13 @@
   <description>log4j2 2.14.1 Test Target Server Project</description>
 
   <properties>
-    <!-- Spring Boot 2.7.1은 2.17.2 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
+    <!-- Spring Boot 2.7.2은 2.17.2 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
     <!-- https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/2.7.1/spring-boot-dependencies-2.7.1.pom -->
     <log4j2.version>2.14.1</log4j2.version>
     
     <!-- 원격 코드 실행 취약점을 재현하려면, 
          Spring Boot 2.6.6에서 사용하는 tomcat 버전을 사용해야한다. (9.0.60) 
-         Spring Boot 2.7.1에 포함된 9.0.64에서는 LDAP 요청을 타겟서버가 받긴하지만, 
+         Spring Boot 2.7.1에 포함된 9.0.64 부터는 LDAP 요청을 타겟서버가 받긴하지만, 
          원격 코드 실행을 하지 못하고 예외가 발생한다.
     -->
     <tomcat.version>9.0.60</tomcat.version>
