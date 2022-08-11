@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.2</version>
+    <version>3.0.0-M4</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>org.mklinkj</groupId>
@@ -20,6 +20,35 @@
     <nashorn.version>15.4</nashorn.version>
     <rhino-engine.version>1.7.14</rhino-engine.version>
   </properties>
+
+  <repositories>
+    <!-- Spring 마일스톤 버전을 사용하기 위해 레파지토리 설정이 필요함. -->
+    <repository>
+      <id>spring-milestones-repo</id>
+      <name>Spring Milestones Repository</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled> <!-- 레파지토리자체가 정식이 아닌 개념이라 false로 설정하면 M다운받질 않음. -->
+      </releases>
+    </repository>    
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-milestones-repo</id>
+        <name>Spring Milestones Repository</name>
+        <url>https://repo.spring.io/milestone</url>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+    </pluginRepository>
+  </pluginRepositories>
 
   <modules>
     <!-- LDAP 서버 프로젝트 -->

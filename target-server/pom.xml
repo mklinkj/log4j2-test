@@ -22,7 +22,10 @@
          Spring Boot 2.7.1에 포함된 9.0.64 부터는 LDAP 요청을 타겟서버가 받긴하지만, 
          원격 코드 실행을 하지 못하고 예외가 발생한다.
     -->
-    <tomcat.version>9.0.60</tomcat.version>
+    <!-- Spring Boot 3 경우는 Jakarta Servlet 5.0에 대응 되므로 Tomcat 10을 사용하는데...
+         Tomcat 10.0.20 까지는 예외 없이 원격 코드 실행 재현을 할 수 있다.
+    -->
+    <tomcat.version>10.0.20</tomcat.version>
   </properties>
 
   <dependencies>

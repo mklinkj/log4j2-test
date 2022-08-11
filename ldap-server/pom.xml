@@ -6,7 +6,7 @@
     <groupId>org.mklinkj</groupId>
     <artifactId>log4j2-test-pom-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <relativePath>../</relativePath> <!-- lookup parent from repository -->
+    <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
   </parent>
   <artifactId>ldap-server</artifactId>
   <name>ldap-server</name>

