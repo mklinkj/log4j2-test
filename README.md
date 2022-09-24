@@ -10,7 +10,7 @@
   ```xml
   <properties>
     <java.version>17</java.version>
-    <!-- Spring Boot 2.7.2는 2.17.2 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
+    <!-- Spring Boot 3.0.0 M5은 이 문제가 해결된 log4j 디펜던시를 가지므로, 일부러 버전을 낮춘다.-->
     <log4j2.version>2.14.1</log4j2.version>
   </properties>
   ```
