@@ -12,7 +12,7 @@
   ```xml
   <properties>
     <java.version>17</java.version>
-    <!-- Spring Boot 2.7.4는 2.17.2 디펜던시를 가지지만, 일부러 버전을 낮춘다.-->
+    <!-- 현재 설정된 Spring Boot 버전은 취약점이 존재하는 log4j 2.14.1 보다 높은 버전을 가지기 때문에, 일부러 버전을 낮춘다.-->
     <log4j2.version>2.14.1</log4j2.version>
   </properties>
   ```
